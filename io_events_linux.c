@@ -41,10 +41,10 @@ void events_wait(io_events* ev_desc, void* noop_user_data) {
             struct epoll_event event = events[i];
 
             if (event.events & EPOLLIN) {
-                ev_desc->on_read((1L << 12), event.data.ptr);
+                ev_desc->on_read((1L << 20), event.data.ptr);
             }
             if (event.events & EPOLLOUT) {
-                ev_desc->on_write((1L << 12), event.data.ptr);
+                ev_desc->on_write((1L << 20), event.data.ptr);
             }
         }
 
